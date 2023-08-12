@@ -1,0 +1,155 @@
+<h3>Checkout</h3>
+<section id="user-cart" class="delivery-details">
+  <div class="row cart-wrapper mt-5">
+    {{! <form action="/user/deliver-details"> }}
+    <div class="col-md-4">
+      {{! Address }}
+      <section id="delivery-address">
+        <div class="header">
+          <h1 class="display-6">Delivery Address</h1>
+          <p>We will deliver your order to this address</p>
+        </div>
+        <div class="main">
+          <div class="select-address">
+            <span class="d-inline-block me-2 fw-light">Select from saved address</span>
+            <span class="d-inline-block" role="button"><i
+                class="bi bi-plus-circle"
+              ></i></span>
+          </div>
+          <div class="add-new-address me-5 my-4">
+            <p class="fw-bold">Add new address</p>
+
+            {{! <div class="mb-3">
+              <label for="address" class="form-label">Address</label>
+              <input type="text" class="form-control" id="address" />
+              <div class="form-text">We'll never send any promotional emails.</div>
+            </div> }}
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Address"
+                id="address"
+              />
+              <label for="address">Address</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="PIN"
+                id="pin"
+              />
+              <label for="pin">PIN</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Phone"
+                id="phone"
+              />
+              <label for="phone">Phone</label>
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+    </div>
+    <div class="col-md-4">
+      {{! Payment Method }}
+      <section id="payment-method">
+        <div class="header">
+          <h1 class="display-6">Payment Method</h1>
+          <p>Select your convenient payment method</p>
+        </div>
+        <div
+          class="btn-group-vertical my-4"
+          role="group"
+          aria-label="Basic radio toggle button group"
+        >
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="payment-type"
+              value="credit-debit"
+              id="credit-debit"
+              checked
+            />
+            <label class="form-check-label" for="credit-debit">
+              Credit/ Debit Card
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="payment-type"
+              value="net-banking"
+              id="net-banking"
+            />
+            <label class="form-check-label" for="net-banking">
+              NetBanking
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="payment-type"
+              value="cod"
+              id="cod"
+            />
+            <label class="form-check-label" for="cod">
+              Cash on Delivery
+            </label>
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+    <div class="col-md-3 offset-md-1">
+      <b>Order Details</b>
+      {{#if user}}
+        {{#if totalPrice}}
+          <div class="order-summary">
+            <section class="product-price">
+              <span class="price-label">Cart total</span>
+              <span class="price-value">&#8377;{{totalPrice}}.00</span>
+            </section>
+            <section class="product-discount-price">
+              <span class="discount-label">Cart discount</span>
+              <span class="discount-value">- &#8377;0</span>
+            </section>
+            <section class="product-delivery-price">
+              <span class="delivery-label">Delivery</span>
+              <span class="delivery-value">&#8377;0</span>
+            </section>
+            <section class="product-final-price">
+              <span class="final-price-label">Total Amount</span>
+              <span class="final-price-value">&#8377;<span
+                  id="totalAmount"
+                >{{totalPrice}}</span>.00</span>
+            </section>
+            <div class="cart-proceed-btn">
+              {{! <a href="/user/order-summary">Proceed to Payment</a> }}
+              <button
+                type="button"
+                id="proceed-payment"
+                data-user="{{user._id}}"
+              >Proceed to Payment</button>
+
+            </div>
+          </div>
+        {{/if}}
+      {{/if}}
+
+    </div>
+    {{! </form> }}
+  </div>
+
+</section>

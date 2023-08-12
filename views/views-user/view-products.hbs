@@ -1,0 +1,33 @@
+<section>
+  <div class="row">
+    {{! @index - to get array index }}
+    {{#each products}}
+      <div class="col-md mb-4">
+        <div class="card" style="width: 18rem;">
+          <img
+            src="/images/product-images/{{this._id}}.jpg"
+            class="card-img-top w-75"
+            alt="{{this.name}}"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{this.name}}</h5>
+            <h5 class="card-title">&#8377;{{this.price}}</h5>
+            <p class="card-text">{{this.description}}</p>
+            {{! instead of the follwing a with params, using AJAX method to update the cart
+             badge and cartdata collection without updating the page.
+             Note: If we are using a tag, then we should prevent the default action, so button is recommended}}
+            {{!-- <a
+              href="/add-to-cart/{{this._id}}"
+              id="addToCart"
+              class="btn btn-primary"
+            >ADD TO CART</a> --}}
+            <button
+              class="btn btn-primary add-to-cart"
+              data-prdid="{{this._id}}"
+            >ADD TO CART</button>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</section>

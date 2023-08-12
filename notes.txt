@@ -1,0 +1,77 @@
+================ Modules/Libraries installed in this Project ================
+
+1. express-handlebars - app.engine()
+2. express-fileupload - app.use(fileupload())
+3. express-session
+4. bcrypt
+5. mongodb
+
+
+================ Types of Web Storage ================
+#Local storage:
+It keeps store the user information data without expiration date this data will not be deleted -
+when user closed the browser windows it will be available for day, week, month and year.
+Local storage can store 5-10mb offline data.
+
+#Session Storage:
+It is same like local storage date except it will delete all data when browser windows closed by a web user.
+Session storage can store upto 5 mb data
+
+#Session:
+Sessions are server-side files that contain user data.
+A session is a global variable stored on the server.
+Each session is assigned a unique id which is used to retrieve stored values.
+
+#Cookies:
+Cookies are client-side files on a local computer that hold user information.
+Cookies are data, stored in small text files as name-value pairs, on your computer.
+Once a cookie has been set, all page requests that follow return the cookie name and value.
+
+#Cache:
+Almost synonymous with local storage.
+It makes websites load faster by saving heavier webpage resources on your device.
+Stuff stored in cache is usually static and unchanging
+Examples of what cache stores are: Images (logos, background, cat pictures, etc.), Videos (you know, YouTube), HTML, CSS, JavaScript (bits of code)
+
+
+#How to compare two ObjectID's in MongoDB
+ObjectIDs are objects so if you just compare them with == you're comparing their references.
+If you want to compare their values you need to use the ObjectID.equals method as follows:
+if (results.userId.equals(AnotherMongoDocument._id)) {
+    ...
+}
+
+OR
+
+convert the object id to string(using toString() method) will do the job.
+
+
+
+
+Different HTTP Methods in Node with fetch()
+https://www.tabnine.com/code/javascript/query/express%40Router%40delete%2B%22router.put%22
+
+
+
+mongodb Methods
+$elemMatch
+$arrayElemAt
+$inc
+$push
+$pull
+
+
+//In hbs, to access a value from outside the #each loop
+{{../value}}
+
+
+//Easy ways to convert string to Number
+parseFloat("384.75");
+parseInt("384.75");
+Number("384.75");
+//Super tricks
++ "384.75" // adding + before a string integer
+"384.75" * 1 // * 1 after a string integer
+
+==============================================================================
+In Admin Page, We can use Datatable(JQuery Library) to order,sort, search etc.

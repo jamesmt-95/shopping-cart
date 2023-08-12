@@ -1,0 +1,69 @@
+<h3>User Order's Approval</h3>
+<section id="user-orders">
+  <div class="row orders-wrapper mt-5">
+    <div class="col-md-10">
+      {{! iterate this  }}
+      {{#if userOrders}}
+        {{#each userOrders}}
+          <div class="card orders-card-container rounded shadow-sm mb-3">
+            <div class="card-header">
+              <div class="row justify-content-between">
+                <div class="col-2">
+                  <p class="text-uppercase mb-0">order placed on</p>
+                  <p id="order-date">{{this.orderDate}}</p>
+                </div>
+                 <div class="col-2">
+                  <p class="text-uppercase mb-0">order placed by</p>
+                  <p id="order-total">{{this.user.name}}</p>
+                </div>
+                <div class="col-2">
+                  <p class="text-uppercase mb-0">payment method</p>
+                  <p
+                    id="order-payment-method"
+                    class="text-capitalize"
+                  >{{this.userPaymentType}}</p>
+                </div>
+               
+                <div class="col-2">
+                  <p class="text-uppercase mb-0">Total Price</p>
+                  <p id="order-total">&#8377;{{this.totalCartAmount}}.00</p>
+                </div>
+                {{! we can use offset-1 to push 1 col forwd }}
+                <div class="col-3 text-end">
+                    <a class="text-decoration-none fw-light" href="/user/view-order-details/{{this._id}}">
+                      View Details
+                    </a>
+                </div>
+              </div>
+            </div>
+            <div class="card-body p-3">
+              <div class="orders-product-group">
+                {{#each this.userOrderDetails}}
+                  <div class="orders-item d-flex my-3">
+                    <div class="item-img">
+                      <img
+                        src="/images/product-images/{{this._id}}.jpg"
+                        alt="Image"
+                      />
+                    </div>
+                    <div class="item-details">
+                      <h5>{{this.name}}</h5>
+                      <h6>&#8377;{{this.price}}</h6>
+                    </div>
+                  </div>
+                {{/each}}
+              </div>
+              <button class="btn btn-success float-end" name="approve-userOrder" data-orderId="{{this._id}}">Approve Order</button>
+            </div>
+          </div>
+          {{! end iterate this  }}
+        {{/each}}
+      {{else}}
+      <h2 class="display-4 text-warning">No Orders yet.</h1>
+      {{/if}}
+
+    </div>
+
+  </div>
+
+</section>

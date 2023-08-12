@@ -1,0 +1,51 @@
+<section id="admin-add-product">
+  <div class="container">
+    <div class="row">
+      <h1 class="display-6">Add Product</h1>
+      <form
+        class="w-50 mt-4"
+        action="/admin/add-product"
+        method="POST"
+        enctype="multipart/form-data"
+        {{! Multipart form data: The ENCTYPE attribute of <form> tag specifies the method of encoding for the form data. It is one of the two ways of encoding the HTML form. It is specifically used when file uploading is required in HTML form. It sends the form data to server in multiple parts because of large size of file. }}
+      >
+        <div class="mb-1">
+          <label for="prd-name" class="form-label">Name</label>
+          <input type="text" name="name" class="form-control" id="prd-name" />
+        </div>
+        <div class="mb-1">
+          <label for="prd-category" class="form-label">Category</label>
+          <input
+            type="text"
+            name="category"
+            class="form-control"
+            id="prd-category"
+          />
+        </div>
+        <div class="mb-1">
+          <label for="prd-price" class="form-label">Price</label>
+          <input
+            type="number"
+            name="price"
+            class="form-control"
+            id="prd-price"
+          />
+        </div>
+        <div class="mb-1">
+          <label for="prd-desc" class="form-label">Description</label>
+          <input
+            type="text"
+            name="description"
+            class="form-control"
+            id="prd-desc"
+          />
+        </div>
+        <div class="mb-3">
+          <label fo r="prd-img" class="form-label">Image</label>
+          <input type="file" name="image" class="form-control" id="prd-img" />
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </form>
+    </div>
+  </div>
+</section>

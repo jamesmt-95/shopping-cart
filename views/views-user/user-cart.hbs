@@ -1,0 +1,99 @@
+<h3>Your Cart</h3>
+<section id="user-cart">
+  <div class="row cart-wrapper mt-5 justify-content-between">
+    <div class="col-md-8">
+
+      {{#each products}}
+        <div class="each-item-card mb-4 shadow-sm rounded">
+          {{! shadow | shadow-sm | shadow-lg }}
+          {{#each this.productCartList}}
+            <div class="prd-image">
+              <img src="/images/product-images/{{this._id}}.jpg" alt="Img 1" />
+            </div>
+          {{/each}}
+          <div class="row prd-details">
+            {{#each this.productCartList}}
+              <div class="prd-name col-md">
+                <p>{{this.name}}</p>
+              </div>
+            {{/each}}
+            <div class="prd-qty-wrapper col-md">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <button
+                    class="btn btn-outline-secondary"
+                    type="button"
+                    name="reduceBtn"
+                    id="btnCartQty"
+                    data-prdid="{{this.item}}"
+                    data-action="sub"
+                  >-</button>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  min="1"
+                  name="cartQty"
+                  value="{{this.quantity}}"
+                  id="prd-qty"
+                />
+                <div class="input-group-append">
+                  <button
+                    class="btn btn-outline-secondary"
+                    type="button"
+                    id="btnCartQty"
+                    data-prdid="{{this.item}}"
+                    data-action="add"
+                  >+</button>
+                </div>
+              </div>
+            </div>
+            {{#each this.productCartList}}
+              <div class="prd-price-wrapper col-md">
+                <p class="prd-price">&#8377;{{this.price}}.00</p>
+              </div>
+            {{/each}}
+          </div>
+          {{#each this.productCartList}}
+            <div class="prd-manage">
+              <button name="deleteCartItem" data-prdid="{{this._id}}"><i
+                  class="bi bi-trash"
+                ></i>Delete</button>
+              <button name="addToWishlist"><i class="bi bi-heart"></i>Move to
+                Wishlist</button>
+            </div>
+          {{/each}}
+        </div>
+
+      {{/each}}
+
+    </div>
+    <div class="col-md-3">
+      <b>Order Details</b>
+      {{#if totalPrice}}
+        <div class="order-summary">
+          <section class="product-price">
+            <span class="price-label">Cart total</span>
+            <span class="price-value">&#8377;{{totalPrice}}.00</span>
+          </section>
+          <section class="product-discount-price">
+            <span class="discount-label">Cart discount</span>
+            <span class="discount-value">- &#8377;0</span>
+          </section>
+          <section class="product-delivery-price">
+            <span class="delivery-label">Delivery</span>
+            <span class="delivery-value">&#8377;0</span>
+          </section>
+          <section class="product-final-price">
+            <span class="final-price-label">Total Amount</span>
+            <span class="final-price-value">&#8377;{{totalPrice}}.00</span>
+          </section>
+          <div class="cart-proceed-btn">
+            <a href="/user/delivery-details">Proceed to shipping</a>
+          </div>
+        </div>
+      {{/if}}
+    </div>
+  </div>
+
+</section>
